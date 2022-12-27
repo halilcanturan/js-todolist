@@ -22,32 +22,10 @@ ul li {
   user-select: none;
 }
 
-ul li:nth-child(odd) {
+.todo:nth-child(odd) {
   background: #f9f9f9;
 }
 
-ul li:hover {
-  background: #ddd;
-}
-
-ul li.checked {
-  background: #276678;
-  color: #fff;
-  text-decoration: line-through;
-}
-
-ul li.checked::before {
-  content: "";
-  position: absolute;
-  border-color: #fff;
-  border-style: solid;
-  border-width: 0 2px 2px 0;
-  top: 10px;
-  left: 16px;
-  transform: rotate(45deg);
-  height: 15px;
-  width: 7px;
-}
 
 .close {
   position: absolute;
@@ -106,23 +84,35 @@ input {
   background-color: #bbb;
 }
 
+.todo:hover{
+  background: #ddd;
+}
+
 .todo_con{
   display: flex;
   flex-direction: column;
-  padding: 15px 20px;
-  border-radius: 15px;
-  margin-top: 32px;
-  background-color: #f78501;
   justify-content: space-between;
+  margin: 0;
+  padding: 0;
+}
+
+.todo.checked::before {
+  clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
 }
 
 
 .todo{
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 8px 0;
-  border-bottom: 1px solid antiquewhite;
+  padding: 12px 8px 12px 40px;
+  font-size: 18px;
+  transition: 0.2s;
+  list-style-type: none;
+  margin-left: 15px;
+  margin-top: 15px;
+
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 .todo:last-child{
@@ -130,14 +120,21 @@ input {
 }
 
 .todo_cb:checked ~ .todo{
+  color: #fff;
   text-decoration: line-through;
-  color:gray;
 }
 
 .todo_cb{
+  display: grid;
+  place-content: center;
+  text-align:center;
+   margin-top:10px;
+  transform : scale(2);
+  width: 40px;
+  height: 40px;
   float: left;
+  align-items: center;
   width: 30px;
-  padding: 10px;
 }
 
 .todo_text {
@@ -150,6 +147,7 @@ input {
 }
 .todo_left{
   display: flex;
+  float: left;
   align-items: center;
 }
 
